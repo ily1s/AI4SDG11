@@ -1,12 +1,16 @@
-streamlit
+numpy
 pandas
-plotly
-folium
-streamlit-folium
+matplotlib
 requests
 python-dotenv
+datetime
+xml
+spacy
+tensorflow==2.18.0
+scikit-learn==1.6.1
+scikeras==0.13.0
 tweepy
-torch
-transformers
-joblib
-#run pip install -r requirements.txt
+streamlit
+streamlit-folium
+plotly
+folium
