@@ -1,0 +1,16 @@
+numpy
+pandas
+matplotlib
+requests
+python-dotenv
+datetime
+xml
+spacy
+tensorflow==2.18.0
+scikit-learn==1.6.1
+scikeras==0.13.0
+tweepy
+streamlit
+streamlit-folium
+plotly
+folium
