@@ -9,35 +9,54 @@ Urban disasters such as floods, earthquakes, fires, and infrastructure failures 
 
 The system is designed to:
 - Detect disaster-related tweets
-- Classify them using a fine-tuned BERT model
-- Extract named entities and geolocation info
-- Trigger alerts when certain thresholds are met
+- Classify disaster-related tweets and determine disaster type using a fine-tuned BERT model.
+- Extract key details such as location using NER.
+- Trigger alerts when disaster activity spikes.
 
 ---
 
 ## 📊 Data
 - Source: Twitter Streaming API using relevant keywords ("flood", "earthquake", "fire", "collapse", etc.)
 - Preprocessed to remove retweets, non-English tweets, and spam
-- Annotated disaster tweet dataset from Kaggle (used for fine-tuning)
+- Database: SQLite storage for tweet metadata
 
 ---
 
 ## 🤖 Models
-- BERT base model (transformers library by Hugging Face)
-- Fine-tuned on disaster classification using tweet data
-- Named Entity Recognition (NER) using pretrained model: `dslim/bert-base-NER`
+1️⃣ Disaster Classification Model
+	-	Model: Fine-tuned BERT (based on bert-base-uncased)
+	-	Task: Predicts whether a tweet describes a real disaster
+  -	Disaster type (earthquake, flood, bombing, etc.)
+  -	Training Data: Labeled disaster tweets dataset
 
-Additional tools:
-- Time-series tweet count analysis for event spike detection
-- Optional: distilBERT for faster inference in real-time applications
+2️⃣ Named Entity Recognition (NER) for Location & Disaster Type
+	-	Model: dslim/bert-base-NER
+	-	Task: Extracts:
+	-	Locations (cities, countries)
+	
+Additional Features:
+	•	Time-series monitoring for detecting disaster trends
+	•	Optional: distilBERT for faster inference
 
 ---
 
-## 💡 Applications
-- Real-time urban disaster alerting and crisis response
-- Smart city emergency infrastructure
-- Data source for NGOs, rescue services, and government bodies
-- Integration with mobile alerts and dashboards
+⚡ System Architecture
+
+1️⃣ Data Collection – Fetches tweets using Twitter API
+2️⃣ Preprocessing – Cleans and prepares tweet text
+3️⃣ Classification – Uses fine-tuned BERT to detect disasters & disaster types
+4️⃣ NER Extraction – Identifies locations 
+5️⃣ Database Storage – Saves classified tweets & extracted info
+6️⃣ Alert System – Triggers alerts based on activity spikes
+
+⸻
+
+📊 Dashboard
+	•	Real-time disaster tweet monitoring
+	•	Geolocation visualization (map-based)
+	•	Time-series event detection
+	•	Admin panel for analysis & reporting
+
 
 ---
 
@@ -51,13 +70,15 @@ Additional tools:
 ## 🚀 Get Started
 1. Clone the repo
 ```bash
-git clone https://github.com/your-username/AI4SDG-BERT.git
+git clone https://github.com/ily1s/AI4SDG11.git
 ```
 2. Install requirements
 ```bash
 pip install -r requirements.txt
 ```
-3. Add your Twitter API credentials in config.py
+3. Set up Twitter API keys
+	•	Add credentials in .env file
+	•	Ensure SQLite database (tweets.db) is initialized
 4. Run the main pipeline
 ```bash
 python app.py
@@ -67,8 +88,8 @@ python app.py
 
 ## 📎 Resources
 - BERT Disaster Classifier: https://huggingface.co/elam2909/bert-disaster-classifier
-- Kaggle Disaster Tweets Dataset: https://www.kaggle.com/c/nlp-getting-started
 - Hugging Face NER Model: https://huggingface.co/dslim/bert-base-NER
+- Kaggle Disaster Tweets Dataset: https://www.kaggle.com/datasets/ily4ho/disaster-tweets
 
 ---
 
