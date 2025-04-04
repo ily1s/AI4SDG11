@@ -42,12 +42,12 @@ Additional Features:
 
 ⚡ System Architecture
 
-1- Data Collection – Fetches tweets using Twitter API
-2- Preprocessing – Cleans and prepares tweet text
-3- Classification – Uses fine-tuned BERT to detect disasters & disaster types
-4- NER Extraction – Identifies locations 
-5- Database Storage – Saves classified tweets & extracted info
-6- Alert System – Triggers alerts based on activity spikes
+- Data Collection – Fetches tweets using Twitter API
+- Preprocessing – Cleans and prepares tweet text
+- Classification – Uses fine-tuned BERT to detect disasters & disaster types
+- NER Extraction – Identifies locations
+- Database Storage – Saves classified tweets & extracted info
+- Alert System – Triggers alerts based on activity spikes
 
 ⸻
 
