@@ -52,10 +52,10 @@ Additional Features:
 ⸻
 
 📊 Dashboard
-	•	Real-time disaster tweet monitoring
-	•	Geolocation visualization (map-based)
-	•	Time-series event detection
-	•	Admin panel for analysis & reporting
+	- Real-time disaster tweet monitoring
+	- Geolocation visualization (map-based)
+	- Time-series event detection
+	- Admin panel for analysis & reporting
 
 
 ---
