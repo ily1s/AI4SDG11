@@ -73,7 +73,7 @@ Additional Features:
 ![alt text](images/img2.png)
 ![alt text](images/img3.png)
 ![alt text](images/img4.png)
-![Demo](https://github.com/ily1s/AI4SDG11/issues/1#issue-2973504060)
+
 ---
 
 ## 🚀 Get Started
