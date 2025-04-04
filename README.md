@@ -67,6 +67,15 @@ Additional Features:
 
 ---
 
+## 🚀 Application 
+
+![alt text](images/img1.png)
+![alt text](images/img2.png)
+![alt text](images/img3.png)
+![alt text](images/img4.png)
+
+---
+
 ## 🚀 Get Started
 1. Clone the repo
 ```bash
