@@ -76,9 +76,9 @@ Additional Features:
 
 ---
 
-## 🚀 Get Starte
+## 🚀 Get Started
 
-# To Test the model, just run our_model.py 
+### To Test the model, just run our_model.py 
 
 1. Clone the repo
 ```bash
