@@ -91,11 +91,14 @@ def classify_and_update_tweets():
 # classify_and_update_tweets()
 
 
-tweet = "Bombing in gaza"
+tweet = "Bombing in Gaza"
 disaster_status = predict_disaster(tweet)
 
 if disaster_status == "Disaster":
     disaster_type = predict_disaster_type(tweet)
+    location = extract_locations(tweet)
     print(f"The tweet is a disaster and belongs to type: {disaster_type}")
+    print(f"Extracted location: {location}")
 else:
     print("The tweet is not about a disaster.")
+
