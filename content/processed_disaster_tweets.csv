@@ -1,8 +1,11 @@
-id,created_at,type,text,user,location,latitude,longitude,severity,retweets,favorites,hashtags,image_url
-1907855356128112996,2025-04-03 17:58:57+00:00,Tornado,"Guys my state Oklahoma is now in Tornado season, get everything charged as I do here (ignore my 4th item being charged) https://t.co/52ZtPmLih7",on_mab,Unknown,,,1,0,1,[],
-1907855354957901918,2025-04-03 17:58:57+00:00,Hurricane,"@BackpirchCrew About Milton, what's insane to me, in addition to what you mentioned, is the fact of where Milton originated and his movement to have such an intensity, very VERY unusual, if not a once in a lifetime Hurricane for sure.",SurfingMoonWolf,Flying Like Rumina Sato,,,1,0,0,[],
-1907855351153635415,2025-04-03 17:58:56+00:00,Flood,"At 10:00 AM EDT, Pedro [Lawrence Co, OH] Dept of Highways reports Flood. Portions of OH Route 93 closed due to flooding. #ohwx https://t.co/gJnkiG6AxW https://t.co/1FGjqZOYto",MaxD1131,"Nebraska, USA",41.7370229,-99.5873816,1,0,0,['ohwx'],
-1907855350553866709,2025-04-03 17:58:56+00:00,Flood,"At 10:00 AM EDT, Pedro [Lawrence Co, OH] Dept of Highways reports Flood. Portions of OH Route 93 closed due to flooding. #ohwx https://t.co/sGwZomzeg3 https://t.co/G0LJpBLJce",SkyTrevorBWX,Nebraska,41.7370229,-99.5873816,1,0,0,['ohwx'],
-1907855350415413613,2025-04-03 17:58:56+00:00,Flood,"At 10:00 AM EDT, Pedro [Lawrence Co, OH] Dept of Highways reports Flood. Portions of OH Route 93 closed due to flooding. #ohwx https://t.co/5GaU2ihSzQ https://t.co/BgSoXjXLPH",iembot_rlx,"Charleston, WV",38.3505995,-81.6332812,1,0,0,['ohwx'],
-1907855339955040305,2025-04-03 17:58:53+00:00,Flood,"Tornado Watch (Pink) until 11pm ET, Flood Warning (Brown) until Midnight ET, and Flash Flood Warnings (Green), are active throughout portions of Kentucky. We are closely monitoring the evolution of storms as they come out of Tennessee. - George https://t.co/vmrcCJ4BWV",WeatherNowKY,"Kentucky, United States",37.5726028,-85.1551411,1,0,0,[],
-1907855333751497000,2025-04-03 17:58:52+00:00,Tornado,FIRST ALERT: A Tornado WATCH has been issued for the counties shaded in red until Apr 03 11:00PM EDT. Stay up to date with the WYMT First Alert Weather App. More info - https://t.co/QzeqR7dIKt #kywx #wvwx #vawx #tnwx https://t.co/07WbtjRiIi,WYMT,"Hazard, KY",37.2489635,-83.1933893,1,0,0,"['kywx', 'wvwx', 'vawx', 'tnwx']",
+id,text,type,location,timestamp,hashtags,retweets,favorites,latitude,longitude,severity
+12345,"Flash flood warning issued for downtown Miami #flood","Flood","Miami, FL","2025-04-05 14:30:00","['flood']",42,105,25.7617,-80.1918,6
+12346,"Wildfire spreading rapidly near Malibu Canyon #CAfire","Wildfire","Malibu, CA","2025-04-01 16:45:00","['CAfire']",215,543,34.0259,-118.7798,8
+12347,"Earthquake magnitude 5.3 felt in Tokyo","Earthquake","Tokyo, Japan","2025-03-25 03:20:00","[]",1500,3200,35.6762,139.6503,9
+12348,"Tornado spotted near Oklahoma City","Tornado","Oklahoma City, OK","2023-08-16 18:15:00","[]",87,210,35.4676,-97.5164,5
+12349,"Volcano eruption alert for Mount Etna","Volcano","Catania, Italy","2023-08-17 09:50:00","[]",520,890,37.5027,15.0873,7
+12350,"Landslide blocks highway near Rio de Janeiro","Landslide","Rio de Janeiro, Brazil","2023-08-17 12:10:00","[]",65,120,-22.9068,-43.1729,4
+12351,"Severe drought conditions in Nairobi","Drought","Nairobi, Kenya","2023-08-18 07:30:00","[]",210,430,-1.2864,36.8172,5
+12352,"Hurricane warning for coastal Louisiana #IDA","Storm","New Orleans, LA","2023-08-18 15:45:00","['IDA']",1800,4200,29.9511,-90.0715,9
+12353,"Unknown emergency situation downtown","Other","Unknown","2023-08-19 11:20:00","[]",5,10,,,3
+12354,"Building collapse reported in Delhi","Other","Delhi, India","2023-08-19 13:40:00","[]",340,760,28.6139,77.2090,6

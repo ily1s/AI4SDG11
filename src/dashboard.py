@@ -6,6 +6,7 @@ from streamlit_folium import folium_static
 from datetime import datetime, timedelta
 import requests
 import xml.etree.ElementTree as ET
+from tweet_processor import process_tweets_from_db
 
 # Set up the page
 st.set_page_config(
@@ -13,6 +14,8 @@ st.set_page_config(
     page_icon="⚠️",
     layout="wide"
 )
+
+
 
 # Custom CSS for better styling
 st.markdown("""
@@ -49,10 +52,22 @@ st.markdown("""
 @st.cache_data(ttl=300)
 def load_twitter_data():
     try:
-        twitter_df = pd.read_csv("content/processed_disaster_tweets.csv", parse_dates=['created_at'])
-        twitter_df = twitter_df.rename(columns={'created_at': 'timestamp'})
+        twitter_df = pd.read_csv("content/processed_disaster_tweets.csv", 
+                               parse_dates=['timestamp'])
         twitter_df['reported_by'] = 'Twitter'
-        twitter_df['confidence'] = 0.85  # Default confidence for social media
+        twitter_df['confidence'] = 0.85
+
+
+        
+        # Ensure required columns exist
+        if 'latitude' not in twitter_df.columns:
+            twitter_df['latitude'] = None
+        if 'longitude' not in twitter_df.columns:
+            twitter_df['longitude'] = None
+        else :
+            twitter_df['latitude'] = pd.to_numeric(twitter_df['latitude'], errors='coerce')
+            twitter_df['longitude'] = pd.to_numeric(twitter_df['longitude'], errors='coerce')
+            
         return twitter_df
     except Exception as e:
         st.error(f"Error loading Twitter data: {e}")
@@ -119,7 +134,6 @@ def load_combined_data():
 
 # Load data
 combined_df = load_combined_data()
-
 # Sidebar filters
 with st.sidebar:
     st.header("Filters")
@@ -150,11 +164,13 @@ with st.sidebar:
 
 # Apply filters
 if not combined_df.empty:
+# Update your filter logic to ensure Twitter data isn't being filtered out
     filtered_df = combined_df[
         (combined_df["type"].isin(disaster_types)) & 
         (combined_df["severity"] >= severity_levels[0]) & 
         (combined_df["severity"] <= severity_levels[1]) &
-        (combined_df["reported_by"].isin(source_types))
+        (combined_df["reported_by"].isin(source_types)) &
+        (~combined_df['latitude'].isna())  # Ensure we only plot items with coordinates
     ].copy()
     
     if time_range == "Last 24 hours":
@@ -200,7 +216,6 @@ with tab1:
                 <b>Type:</b> {row['type']}<br>
                 <b>Severity:</b> {row['severity']}/10<br>
                 <b>Source:</b> {row['reported_by']}<br>
-                <small>{row['description'][:100]}...</small>
             """
             
             folium.Marker(
@@ -291,17 +306,26 @@ with tab3:
                     </div>
                     <p><b>Location:</b> {alert.get('country', alert.get('location', 'Unknown'))}</p>
                     <p><b>Severity:</b> {alert['severity']}/10 | <b>Confidence:</b> {alert['confidence']*100:.0f}%</p>
-                    <p>{alert['description'][:200]}...</p>
                     <p><small><b>Detected:</b> {alert_time}</small></p>
                 </div>
             """, unsafe_allow_html=True)
     else:
         st.warning("No recent alerts match your filters.")
 
+
+def refresh_all_data():
+    """Refresh both data sources"""
+    with st.spinner("Refreshing all data sources..."):
+        # Process Twitter data from DB to CSV
+        process_tweets_from_db()
+        
+        # Clear caches and rerun
+        st.cache_data.clear()
+        st.rerun()
+
 # Refresh button
 if st.button("Refresh Data"):
-    st.cache_data.clear()
-    st.experimental_rerun()
+    refresh_all_data()
 
 # Last updated time
 st.markdown("---")
