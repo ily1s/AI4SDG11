@@ -7,8 +7,12 @@
 # Model files directory
 models/
 bert_disaster_model/
+patched_disaster_model/
 
 # Database file
 tweets.db
+
+src/__pycache__
+src/.DS_Store
 
 
