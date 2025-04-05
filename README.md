@@ -76,7 +76,10 @@ Additional Features:
 
 ---
 
-## 🚀 Get Started
+## 🚀 Get Starte
+
+# To Test the model, just run our_model.py 
+
 1. Clone the repo
 ```bash
 git clone https://github.com/ily1s/AI4SDG11.git
