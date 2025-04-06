@@ -9,4 +9,5 @@ tweepy
 torch
 transformers
 joblib
+geopy
 #run pip install -r requirements.txt
