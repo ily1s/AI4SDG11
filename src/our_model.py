@@ -8,11 +8,15 @@ from huggingface_hub import hf_hub_download
 classifier = pipeline("text-classification", model="elam2909/bert-disaster-classifier")
 
 # Download the joblib files from Hugging Face
-tfidf_path = hf_hub_download(repo_id="elam2909/bert-disaster-classifier", 
-                             filename="disaster_tfidf_vectorizer.joblib")
-                             
-type_classifier_path = hf_hub_download(repo_id="elam2909/bert-disaster-classifier", 
-                                       filename="disaster_type_classifier.joblib")
+tfidf_path = hf_hub_download(
+    repo_id="elam2909/bert-disaster-classifier",
+    filename="disaster_tfidf_vectorizer.joblib",
+)
+
+type_classifier_path = hf_hub_download(
+    repo_id="elam2909/bert-disaster-classifier",
+    filename="disaster_type_classifier.joblib",
+)
 
 # Load the models
 tfidf_vectorizer = joblib.load(tfidf_path)
@@ -21,9 +25,7 @@ disaster_type_classifier = joblib.load(type_classifier_path)
 # Example text
 text = "Huge earthquake just hit southern Turkey. Buildings are collapsing!"
 
-result = classifier(
-    "Huge earthquake just hit southern Turkey. Buildings are collapsing!"
-)
+result = classifier(text)
 print(result)
 
 # The output will contain the classification and confidence score
